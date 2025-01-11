@@ -1,0 +1,2382 @@
+@charset "UTF-8";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
+}
+* body header {
+  z-index: 40 !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 80px;
+  border-bottom: 1.5px solid;
+  background-color: white;
+  border-color: rgb(212, 242, 16);
+  position: fixed;
+}
+* body header .heade {
+  max-width: 1920px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 95%;
+}
+* body header .heade .header_1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 210px;
+}
+* body header .heade .header_1 .oxmetal_img {
+  cursor: pointer;
+}
+* body header .heade .header_1 .oxmetal_img img {
+  width: 135px;
+  height: 35px;
+}
+* body header .heade .header_1 .search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 45px;
+  height: 35px;
+  border-radius: 25px;
+  background-color: rgb(212, 242, 16);
+}
+* body header .heade .header_1 .search img {
+  width: 30px;
+  height: 30px;
+}
+* body header .heade .header_2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 400px;
+}
+* body header .heade .header_2 .catalog {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+}
+* body header .heade .header_2 .konsultatiy {
+  width: 210px;
+  height: 50px;
+  background-color: rgb(212, 242, 16);
+  border: none;
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  cursor: pointer;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+}
+* body header .heade .burger_menu {
+  z-index: 41;
+  display: none;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+* body header .heade .burger_menu .burger {
+  width: 35px;
+  height: 6px;
+  display: block;
+  background-color: rgb(45, 45, 45);
+  position: absolute;
+}
+* body header .heade .burger_menu .burger1 {
+  top: 30%;
+}
+* body header .heade .burger_menu .burger2 {
+  top: 50%;
+}
+* body header .heade .burger_menu .burger3 {
+  top: 70%;
+}
+* body header .heade .burger_menu .act_1 {
+  transform: rotate(45deg) translate(7px, 10px);
+}
+* body header .heade .burger_menu .act_2 {
+  opacity: 0;
+}
+* body header .heade .burger_menu .act_3 {
+  transform: rotate(-45deg) translate(12px, -15px);
+}
+* body main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .active_div {
+  display: flex;
+  justify-content: end;
+}
+* body main .active_div aside {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  width: 300px;
+  background-color: white;
+  border: 1px solid black;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  border-radius: 0px;
+  height: 80%;
+  transition: all 300ms ease-in-out;
+  z-index: 50;
+}
+* body main .active_div .not_active {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  top: 12%;
+  left: 100%;
+  position: fixed;
+}
+* body main .active_div .not_active .search2 {
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  width: 170px;
+  height: 40px;
+  background-color: rgb(212, 242, 16);
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+}
+* body main .active_div .not_active .search2 img {
+  width: 35px;
+  height: 35px;
+}
+* body main .active_div .not_active .catalog {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+}
+* body main .active_div .not_active .konsultatiy {
+  width: 210px;
+  height: 50px;
+  background-color: rgb(212, 242, 16);
+  border: none;
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  cursor: pointer;
+}
+* body main .active_div .active {
+  left: 55% !important;
+}
+* body main .modal_bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9998;
+  background-color: rgba(0, 0, 0, 0.3647058824);
+  opacity: 1;
+  transition: all 200ms ease-in;
+}
+* body main .modal_bg:hover {
+  background-color: rgba(0, 0, 0, 0.2392156863);
+}
+* body main .konsultati_div_show {
+  display: inline !important;
+}
+* body main .konsultati_div {
+  display: none;
+  position: fixed;
+  width: 1000px;
+  height: 505px;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 37px 100px;
+  background-color: white;
+  border-radius: 5px;
+  z-index: 9999;
+}
+* body main .konsultati_div .zakrit_konsult {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 25px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transition: transform 200ms ease, border 200ms ease, background-color 200ms ease;
+}
+* body main .konsultati_div .zakrit_konsult img {
+  opacity: 50%;
+  transition: all 200ms ease-in;
+  width: 32px;
+  height: 32px;
+}
+* body main .konsultati_div .zakrit_konsult:hover {
+  background-color: rgb(212, 242, 16);
+}
+* body main .konsultati_div .zakrit_konsult:hover img {
+  opacity: 100%;
+}
+* body main .konsultati_div .box_konsult_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+* body main .konsultati_div .box_konsult_1 h1 {
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  font-size: 48px;
+}
+* body main .konsultati_div .box_konsult_1 p {
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 14px;
+}
+* body main .konsultati_div .box_konsult_2 {
+  padding-top: 20px;
+}
+* body main .konsultati_div .box_konsult_2 form {
+  width: 560px;
+  height: 169px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+}
+* body main .konsultati_div .box_konsult_2 form .label_n1 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
+  width: 560px;
+  height: 55px;
+}
+* body main .konsultati_div .box_konsult_2 form .label_n1 .inputs_konsult {
+  all: unset;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 13px 20px;
+}
+* body main .konsultati_div .box_konsult_2 form .label_n1 .input_tel_konsult {
+  width: 100px;
+  all: unset;
+  cursor: pointer;
+  width: 200px;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 13px 20px;
+}
+* body main .konsultati_div .box_konsult_2 form .label_n1 .input_name_konsult {
+  width: 318px;
+  cursor: pointer;
+}
+* body main .konsultati_div .box_konsult_2 form .label_n2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+* body main .konsultati_div .box_konsult_2 form .label_n2 button {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  width: 210px;
+  height: 50px;
+  background-color: rgb(212, 242, 16);
+  border: none;
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  cursor: pointer;
+}
+* body main .konsultati_div .box_konsult_2 form .label_n2 p {
+  width: 306px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+  font-weight: 500;
+  font-size: 12px;
+}
+* body main .sec1 {
+  max-width: 1920px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec1 .sec_1 {
+  width: 100%;
+  height: 771px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+}
+* body main .sec1 .sec_1 .sec_1_div_1 {
+  padding-left: 25px;
+  padding-bottom: 70px;
+  height: 681px;
+  display: flex;
+  justify-content: end;
+  align-items: start;
+  flex-direction: column;
+}
+* body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+  width: 240px;
+  height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+  height: 70px;
+  width: 240px;
+}
+* body main .sec1 .sec_1 .sec_1_div_1 h2 {
+  width: 660px;
+  height: 157px;
+  line-height: 75px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  font-size: 65px;
+  opacity: 90%;
+}
+* body main .sec1 .sec_1 .sec_1_div_1 p {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #6a6a6a;
+  font-weight: 400;
+  font-size: 30px;
+  width: 760px;
+  height: 80px;
+}
+* body main .sec2 {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec2 .sec_2 {
+  max-width: 1920px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec2 .sec_2 .kompany_div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec2 .sec_2 .kompany_div .kompany_n_1 h2 {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  font-size: 48px;
+  width: 380px;
+  height: 61px;
+}
+* body main .sec2 .sec_2 .kompany_div .kompany_n_2 {
+  margin-top: 50px;
+  width: 100%;
+  height: 170px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+* body main .sec2 .sec_2 .kompany_div .kompany_n_2 img {
+  width: 390px;
+  height: 105px;
+}
+* body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  width: 688px;
+  height: 120px;
+  opacity: 75%;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div {
+  margin-top: 50px;
+  height: 200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .items_div {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .items_div h1 {
+  height: 92px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  font-size: 96px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .items_div p {
+  text-align: center;
+  height: 60px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 20px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_1 {
+  width: 250px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_1 h1 {
+  width: 246px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_1 p {
+  width: 135px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_2 {
+  width: 285px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_2 h1 {
+  width: 283px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_2 p {
+  width: 119px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_3 {
+  width: 146px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_3 h1 {
+  width: 146px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_3 p {
+  margin-bottom: 25px;
+  width: 134px;
+  height: 30px !important;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_4 {
+  width: 192px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_4 h1 {
+  width: 146px;
+}
+* body main .sec2 .sec_2 .rabota_kompany_div .item_4 p {
+  width: 192px;
+}
+* body main .sec3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec3 .sec_3 {
+  margin-top: 80px;
+  width: 90%;
+  max-width: 1920px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec3 .sec_3 .o_kompany_1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 75%;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-self: flex-start;
+}
+* body main .sec3 .sec_3 .o_kompany_2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  width: 75%;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-self: flex-end;
+}
+* body main .sec3 .sec_3 .o_kompany_all .div_o_kompany {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  width: 273px;
+  gap: 15px;
+  border-top: #d6d6d6 1px solid;
+  padding-top: 25px;
+}
+* body main .sec3 .sec_3 .o_kompany_all .div_o_kompany h2 {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 29px;
+}
+* body main .sec3 .sec_3 .o_kompany_all .div_o_kompany p {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 16px;
+  opacity: 65%;
+  line-height: 25px;
+}
+* body main .sec4 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec4 .sec_4 {
+  padding-top: 80px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec4 .sec_4 .vidi_uslug h2 {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 48px;
+}
+* body main .sec4 .sec_4 .all_uslugi {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 200px;
+  padding-bottom: 200px;
+  position: relative;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga {
+  height: 116px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  position: absolute;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga h2 {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 24px;
+  opacity: 65%;
+  transition: all 200ms ease-in;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga h2:hover {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: rgb(144, 164, 15);
+  font-weight: 700;
+  font-size: 24px;
+  opacity: 100%;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga .img_burger_usluga {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 116px;
+  height: 116px;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga:hover .img_burger_usluga {
+  width: 98px;
+  height: 98px;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga:hover .img_burger_usluga img {
+  width: 98px;
+  height: 98px;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga:hover .img_burger_usluga .krovlya_img {
+  width: 128px !important;
+  height: 128px !important;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_1 {
+  width: 346px;
+  top: 10%;
+  right: 50%;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_1 h2 {
+  opacity: 0%;
+  transform: translateX(150px);
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_1:hover {
+  width: 346px;
+  top: 10%;
+  right: 50%;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_1:hover h2 {
+  opacity: 65%;
+  transform: translateX(0px);
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_2 {
+  width: 240px;
+  top: 40%;
+  right: 70%;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_2 h2 {
+  opacity: 0%;
+  transform: translateX(150px);
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_2:hover {
+  width: 240px;
+  top: 40%;
+  right: 50%;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_2:hover h2 {
+  opacity: 65%;
+  transform: translateX(0px);
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_3 {
+  width: 240px;
+  top: 20%;
+  left: 10%;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_3 h2 {
+  opacity: 0%;
+  transform: translateX(-150px);
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_3:hover {
+  width: 240px;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_3:hover h2 {
+  opacity: 65%;
+  transform: translateX(0px);
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_4 {
+  width: 235px;
+  top: 50%;
+  left: 10%;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_4 h2 {
+  opacity: 0%;
+  transform: translateX(-100px);
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_4:hover {
+  width: 235px;
+  top: 50%;
+  left: 10%;
+}
+* body main .sec4 .sec_4 .all_uslugi .burger_usluga_4:hover h2 {
+  opacity: 65%;
+  transform: translateX(0px);
+}
+* body main .sec4 .sec_4 .open_katalog a {
+  padding: 16px 50px;
+  margin-top: 100px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 16px;
+  width: 300px;
+  height: 49px;
+  background-color: rgb(212, 242, 16);
+  border: none;
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  cursor: pointer;
+}
+* body main .sec4 .sec_4 .voprosi_esty {
+  padding-top: 150px;
+}
+* body main .sec4 .sec_4 .voprosi_esty h2 {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 48px;
+}
+* body main .sec4 .sec_4 .voprosi_esty .voprosi {
+  width: 1000px;
+}
+* body main .sec4 .sec_4 .voprosi_esty .voprosi .voprosi_div {
+  border-bottom: 0.3px solid rgb(70, 70, 70);
+  transition: all 300ms ease-in;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+* body main .sec4 .sec_4 .voprosi_esty .voprosi .voprosi_div :nth-child(2) {
+  margin-top: 10px;
+}
+* body main .sec4 .sec_4 .voprosi_esty .voprosi .voprosi_div h3 {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  font-size: 20px;
+  display: block;
+  cursor: pointer;
+  padding-top: 25px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 100;
+  margin: 0 0 5px;
+  transition: color 0.35s;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: left;
+  word-break: break-word;
+  transition: all 200ms ease-in;
+}
+* body main .sec4 .sec_4 .voprosi_esty .voprosi .voprosi_div h3:before {
+  content: url(../images/icons8-добавить-50.png);
+  filter: invert(0%);
+  float: right;
+  width: 20px;
+  height: 20px;
+  margin-bottom: 15px;
+  margin-right: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transition: all 200ms ease;
+}
+* body main .sec4 .sec_4 .voprosi_esty .voprosi .voprosi_div h3.active_otvet:before {
+  content: url(../images/icons8-минус-50.png);
+}
+* body main .sec4 .sec_4 .voprosi_esty .voprosi .voprosi_div p {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: gray;
+  font-weight: 300;
+  font-size: 20px;
+  text-align: left;
+  transition: all 200ms ease-in;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 0;
+}
+* body main .sec4 .sec_4 .voprosi_esty .voprosi .voprosi_div .voprosi_p_show {
+  height: auto;
+  padding: 16px 0px;
+  line-height: 28px;
+  margin-top: 0px;
+}
+* body main .sec5 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec5 .sec_5 {
+  padding-top: 150px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body main .sec5 .sec_5 .konsultati_div2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 1000px;
+  height: 505px;
+  padding: 37px 100px;
+  background-color: white;
+  border-radius: 5px;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_1 h1 {
+  width: 100%;
+  text-align: center;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 800;
+  font-size: 48px;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 {
+  padding-top: 20px;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form {
+  width: 560px;
+  height: 169px;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  gap: 30px;
+  width: 560px;
+  height: 55px;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 .inputs_konsult {
+  all: unset;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 13px 20px;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 .input_tel_konsult {
+  width: 100px;
+  all: unset;
+  cursor: pointer;
+  width: 200px;
+  border-bottom: 1px solid #1e1e1e;
+  padding: 13px 20px;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 .input_name_konsult {
+  width: 318px;
+  cursor: pointer;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n2 button {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 18px;
+  width: 210px;
+  height: 50px;
+  background-color: rgb(212, 242, 16);
+  border: none;
+  clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+  cursor: pointer;
+}
+* body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n2 p {
+  width: 306px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+  font-weight: 500;
+  font-size: 12px;
+}
+* body footer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+* body footer .footer {
+  max-width: 1920px;
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: row;
+  border-top: grey 0.1px solid;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+* body footer .footer .footer_sayts {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  flex-direction: column;
+}
+* body footer .footer .footer_sayts h2 {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 24px;
+}
+* body footer .footer .footer_sayts .h2_div_footer {
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  margin-top: 25px;
+  gap: 17px;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 14px;
+  letter-spacing: 0em;
+}
+* body footer .footer .footer_sayts .h2_div_footer .p_footer_div {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+  font-size: 12px;
+  cursor: pointer;
+}
+* body footer .footer .footer_sayts .h2_div_footer .p_footer_div:hover {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: rgb(197, 229, 0);
+  font-weight: 400;
+  font-size: 12px;
+}
+* body footer .footer .footer_sayts .h2_div_footer .contacti_footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+* body footer .footer .footer_sayts .h2_div_footer .contacti_footer a {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: black;
+  font-weight: 400;
+  font-size: 12px;
+  padding-left: 10px;
+}
+* body footer .footer .footer_sayts .h2_div_footer .contacti_footer a:hover {
+  font-family: sans-serif;
+  text-decoration: none;
+  color: rgb(197, 229, 0);
+  font-weight: 400;
+  font-size: 12px;
+}
+* body .tolko_verx {
+  position: absolute;
+  right: 2%;
+  bottom: 3%;
+  position: fixed;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1500px) {
+  body main .konsultati_div {
+    width: 800px;
+    height: 405px;
+    padding: 27px 80px;
+  }
+  body main .konsultati_div .box_konsult_1 h1 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 35px;
+  }
+  body main .konsultati_div .box_konsult_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 13.5px;
+  }
+  body main .sec1 .sec_1 {
+    height: 671px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 575px;
+    height: 581px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    width: 530px;
+    height: 157px;
+    line-height: 65px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 55px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #6a6a6a;
+    font-weight: 400;
+    font-size: 25px;
+    width: 730px;
+    height: 80px;
+  }
+}
+@media screen and (max-width: 1340px) {
+  body main .sec1 .sec_1 {
+    height: 471px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 475px;
+    height: 481px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    height: 581px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    height: 65px;
+    width: 200px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    width: 430px;
+    height: 157px;
+    line-height: 55px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 45px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #6a6a6a;
+    font-weight: 400;
+    font-size: 20px;
+    width: 600px;
+    height: 80px;
+  }
+}
+@media screen and (max-width: 1100px) {
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 475px;
+    height: 481px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    height: 400px;
+    padding-left: 25px;
+    padding-bottom: 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+    width: 180px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    height: 65px;
+    width: 180px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    width: 340px;
+    height: 90px;
+    line-height: 45px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 35px;
+    margin: 25px 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #6a6a6a;
+    font-weight: 400;
+    font-size: 18px;
+    width: 370px;
+    height: 40px;
+  }
+}
+@media screen and (max-width: 1080px) {
+  body main .konsultati_div {
+    width: 660px;
+    height: 405px;
+    padding: 27px 40px;
+  }
+  body main .konsultati_div .box_konsult_1 h1 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 32px;
+  }
+  body main .konsultati_div .box_konsult_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_1 h2 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 38px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 img {
+    width: 300px;
+    height: 80px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    width: 600px;
+    height: 140px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 18px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div {
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3/1fr);
+    grid-template-rows: repeat(3/1fr);
+    justify-content: space-around;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div {
+    width: 310px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_3 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_4 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  body main .sec3 .sec_3 {
+    width: 80%;
+  }
+  body main .sec3 .sec_3 .o_kompany_all {
+    width: 100%;
+    justify-content: space-between;
+  }
+  body main .sec4 .sec_4 .voprosi_esty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec4 .sec_4 .voprosi_esty .voprosi {
+    width: 90%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 {
+    width: 90%;
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 880px) {
+  body main .konsultati_div {
+    width: 660px;
+    height: 405px;
+    padding: 27px 40px;
+  }
+  body main .konsultati_div .box_konsult_1 h1 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  body main .konsultati_div .box_konsult_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 375px;
+    height: 381px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    height: 300px;
+    padding-left: 25px;
+    padding-bottom: 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+    width: 180px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    height: 65px;
+    width: 180px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    width: 310px;
+    height: 90px;
+    line-height: 45px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 32px;
+    margin: 25px 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #6a6a6a;
+    font-weight: 400;
+    font-size: 17px;
+    width: 300px;
+    height: 55px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_1 h2 {
+    width: 250px;
+    height: 40px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 32px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 {
+    height: 250px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 img {
+    width: 250px;
+    height: 70px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    width: 400px;
+    height: 230px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 17px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div {
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3/1fr);
+    grid-template-rows: repeat(3/1fr);
+    justify-content: space-around;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div {
+    width: 260px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div h1 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 78px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_3 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_4 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  body main .sec3 .sec_3 {
+    width: 80%;
+  }
+  body main .sec3 .sec_3 .o_kompany_all {
+    width: 100%;
+    justify-content: space-between;
+  }
+  body main .sec4 .sec_4 .voprosi_esty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec4 .sec_4 .voprosi_esty .voprosi {
+    width: 90%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 {
+    width: 90%;
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 720px) {
+  body header .heade .burger_menu {
+    display: flex;
+  }
+  body header .heade .header_2 {
+    display: none;
+  }
+  body main .konsultati_div {
+    width: 560px;
+    height: 360px;
+    padding: 27px 47px;
+  }
+  body main .konsultati_div .box_konsult_1 h1 {
+    width: 80%;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  body main .konsultati_div .box_konsult_1 p {
+    margin-top: 10px;
+    width: 80%;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  body main .konsultati_div .box_konsult_2 form {
+    width: 460px;
+    height: 229px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n1 {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 30px;
+    width: 240px;
+    height: 130px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n1 .inputs_konsult {
+    all: unset;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 13px 20px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n1 .input_tel_konsult {
+    width: 100px;
+    all: unset;
+    cursor: pointer;
+    width: 200px;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 13px 20px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n1 .input_name_konsult {
+    width: 200px;
+    cursor: pointer;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 button {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+    width: 190px;
+    height: 45px;
+    background-color: rgb(212, 242, 16);
+    border: none;
+    clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+    cursor: pointer;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 p {
+    width: 220px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    font-weight: 400;
+    font-size: 12px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 325px;
+    height: 331px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    height: 260px;
+    padding-left: 25px;
+    padding-bottom: 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    height: 50px;
+    width: 150px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    width: 240px;
+    height: 70px;
+    line-height: 35px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 28px;
+    margin: 25px 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #6a6a6a;
+    font-weight: 400;
+    font-size: 16px;
+    width: 250px;
+    height: 55px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_1 h2 {
+    width: 250px;
+    height: 40px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 32px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 {
+    height: 260px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 img {
+    width: 210px;
+    height: 60px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    width: 300px;
+    height: 260px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div {
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3/1fr);
+    grid-template-rows: repeat(3/1fr);
+    justify-content: space-around;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div {
+    width: 240px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div h1 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 68px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_3 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_4 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  body main .sec3 .sec_3 {
+    width: 80%;
+  }
+  body main .sec3 .sec_3 .o_kompany_all {
+    width: 100%;
+    justify-content: space-between;
+  }
+  body main .sec3 .sec_3 .o_kompany_all .div_o_kompany {
+    width: 250px;
+  }
+  body main .sec3 .sec_3 .o_kompany_all .div_o_kompany h2 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 23px;
+  }
+  body main .sec3 .sec_3 .o_kompany_all .div_o_kompany p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga h2 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 20px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga h2:hover {
+    font-size: 20px;
+  }
+  body main .sec4 .sec_4 .voprosi_esty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec4 .sec_4 .voprosi_esty .voprosi {
+    width: 90%;
+  }
+  body main .sec4 .sec_4 .vidi_uslug h2 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 37px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 {
+    width: 90%;
+    padding: 0px;
+  }
+  body footer .footer {
+    display: grid;
+    justify-content: space-between;
+    align-items: start;
+    flex-direction: row;
+    grid-template-columns: repeat(3/1fr);
+    grid-template-rows: repeat(3/1fr);
+    gap: 25px;
+  }
+  body footer .footer .footer_sayts {
+    width: 200px;
+  }
+  body footer .footer .footer_sayt1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  body footer .footer .footer_sayt2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  body footer .footer .footer_sayt3 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  body footer .footer .footer_sayt4 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+}
+@media screen and (max-width: 650px) {
+  body header .heade .burger_menu {
+    display: flex;
+  }
+  body header .heade .header_2 {
+    display: none;
+  }
+  body main .konsultati_div {
+    width: 560px;
+    height: 360px;
+    padding: 27px 47px;
+  }
+  body main .konsultati_div .box_konsult_1 h1 {
+    width: 80%;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 28px;
+  }
+  body main .konsultati_div .box_konsult_1 p {
+    margin-top: 10px;
+    width: 80%;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 13px;
+  }
+  body main .konsultati_div .box_konsult_2 form {
+    width: 460px;
+    height: 229px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n1 {
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    flex-direction: column;
+    gap: 30px;
+    width: 240px;
+    height: 130px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n1 .inputs_konsult {
+    all: unset;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 13px 20px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n1 .input_tel_konsult {
+    width: 100px;
+    all: unset;
+    cursor: pointer;
+    width: 200px;
+    border-bottom: 1px solid #1e1e1e;
+    padding: 13px 20px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n1 .input_name_konsult {
+    width: 200px;
+    cursor: pointer;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 button {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 18px;
+    width: 190px;
+    height: 45px;
+    background-color: rgb(212, 242, 16);
+    border: none;
+    clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+    cursor: pointer;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 p {
+    width: 220px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: rgb(50, 50, 50);
+    font-weight: 400;
+    font-size: 12px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 325px;
+    height: 331px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    height: 260px;
+    padding-left: 25px;
+    padding-bottom: 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    height: 50px;
+    width: 150px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    width: 240px;
+    height: 70px;
+    line-height: 35px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 28px;
+    margin: 25px 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: #6a6a6a;
+    font-weight: 400;
+    font-size: 16px;
+    width: 250px;
+    height: 55px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_1 h2 {
+    width: 250px;
+    height: 40px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 32px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 {
+    height: 260px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 img {
+    width: 210px;
+    height: 60px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    width: 300px;
+    height: 260px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 400;
+    font-size: 16px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div {
+    height: 500px;
+    display: grid;
+    grid-template-columns: repeat(3/1fr);
+    grid-template-rows: repeat(3/1fr);
+    justify-content: space-around;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div {
+    width: 240px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div h1 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 68px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_2 {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_3 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .item_4 {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+  body main .sec3 .sec_3 {
+    width: 80%;
+  }
+  body main .sec3 .sec_3 .o_kompany_all {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec3 .sec_3 .o_kompany_all .div_o_kompany {
+    width: 100%;
+  }
+  body main .sec3 .sec_3 .o_kompany_all .div_o_kompany h2 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 23px;
+  }
+  body main .sec3 .sec_3 .o_kompany_all .div_o_kompany p {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: 15px;
+  }
+  body main .sec4 .sec_4 .voprosi_esty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec4 .sec_4 .voprosi_esty .voprosi {
+    width: 90%;
+  }
+  body main .sec4 .sec_4 .vidi_uslug h2 {
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    font-size: 37px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 {
+    width: 90%;
+    padding: 0px;
+  }
+}
+@media screen and (max-width: 600px) {
+  body main .sec1 .sec_1 {
+    height: 421px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 255px;
+    height: 261px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    height: 260px;
+    padding-left: 25px;
+    padding-bottom: 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+    width: 150px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    height: 50px;
+    width: 150px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    width: 200px;
+    height: 70px;
+    line-height: 35px;
+    font-family: sans-serif;
+    text-decoration: none;
+    color: black;
+    font-weight: 800;
+    font-size: 22px;
+    margin: 25px 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 p {
+    display: none;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 {
+    height: 280px;
+    flex-direction: column;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 img {
+    width: 150px;
+    height: 50px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    width: 100%;
+    height: 50%;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div {
+    height: 450px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div p {
+    font-size: 18px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div h1 {
+    width: 160px;
+    font-size: 48px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_1 {
+    width: 240px;
+    top: 10%;
+    right: 50%;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_1 h2 {
+    font-size: 18px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_1:hover {
+    width: 240px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_1:hover h2 {
+    font-size: 18px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 {
+    height: 300px;
+    width: 100%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_1 h1 {
+    font-size: 38px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 {
+    width: 100%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form {
+    width: 100%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    gap: 30px;
+    width: 100%;
+    height: 55px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 .input_name_konsult {
+    width: 35%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 .input_tel_konsult {
+    width: 35%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n2 button {
+    width: 150px;
+    height: 35px;
+    font-size: 14px;
+  }
+}
+@media screen and (max-width: 550px) {
+  body main .active_div .active {
+    left: 45% !important;
+  }
+  body main .konsultati_div {
+    width: 400px;
+    height: 500px;
+  }
+  body main .konsultati_div .box_konsult_2 form {
+    height: 289px;
+    width: 100%;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 p {
+    width: 100%;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 {
+    height: 280px;
+    flex-direction: column;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 img {
+    width: 150px;
+    height: 50px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    width: 100%;
+    height: 50%;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div {
+    height: 450px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div {
+    width: 160px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div p {
+    font-size: 18px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div h1 {
+    width: 160px;
+    font-size: 48px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga {
+    width: 200px !important;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga h2 {
+    font-size: 16px !important;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga .h2_usluga_class:hover {
+    font-size: 16px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga .img_burger_usluga img {
+    width: 96px;
+    height: 96px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga .img_burger_usluga .krovlya_img {
+    width: 136px;
+    height: 124px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga .img_burger_usluga:hover img {
+    width: 76px;
+    height: 76px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga .img_burger_usluga:hover .krovlya_img {
+    width: 106px;
+    height: 94px;
+  }
+}
+@media screen and (max-width: 480px) {
+  body main .active_div .active {
+    left: 35% !important;
+  }
+  body main .sec1 .sec_1 {
+    height: 375px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 205px;
+    height: 211px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    height: 250px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    width: 120px;
+    height: 40px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    height: 130px;
+    width: 140px;
+    font-size: 20px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_1 h1 {
+    font-size: 28px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n2 p {
+    width: 150px;
+  }
+  body footer .footer {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5/1fr);
+  }
+  body footer .footer .footer_sayts {
+    width: 100%;
+  }
+  body footer .footer .footer_sayt1 {
+    grid-column: 1/2;
+    grid-row: 1/2;
+  }
+  body footer .footer .footer_sayt2 {
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+  body footer .footer .footer_sayt3 {
+    grid-column: 1/2;
+    grid-row: 3/4;
+  }
+  body footer .footer .footer_sayt4 {
+    grid-column: 1/2;
+    grid-row: 4/5;
+  }
+}
+@media screen and (max-width: 450px) {
+  body header .heade .burger_menu {
+    display: flex;
+  }
+  body header .heade .header_1 .search {
+    display: none;
+  }
+  body header .heade .header_2 {
+    display: none;
+  }
+}
+@media screen and (max-width: 405px) {
+  body main .active_div .active {
+    left: 25% !important;
+  }
+  body main .konsultati_div {
+    padding: 27px;
+    width: 300px;
+    height: 500px;
+  }
+  body main .konsultati_div .zakrit_konsult {
+    top: 1px;
+    right: 1px;
+    width: 50px;
+    height: 50px;
+  }
+  body main .konsultati_div .box_konsult_2 form {
+    height: 289px;
+    width: 100%;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 p {
+    width: 100%;
+  }
+  body main .sec1 .sec_1 {
+    height: 355px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 185px;
+    height: 191px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    padding-left: 15px;
+    padding-top: 35px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+    width: 100px;
+    height: 35px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    width: 100px;
+    height: 35px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    font-size: 18px;
+    width: 127px;
+  }
+  body main .sec2 .sec_2 .kompany_div {
+    height: 460px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 {
+    height: 360px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    font-size: 14px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div {
+    width: 125px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div h1 {
+    width: 125px;
+    font-size: 38px;
+  }
+  body main .sec2 .sec_2 .rabota_kompany_div .items_div p {
+    width: 125px;
+  }
+  body main .sec4 .sec_4 .all_uslugi {
+    width: 250px;
+    height: 664px;
+    padding: 100px 0 0 0;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga {
+    position: relative;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga h2 {
+    opacity: 65%;
+    transform: translateX(0px);
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_1 {
+    top: 0;
+    left: 0;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_1:hover {
+    top: 0;
+    left: 0;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_2 {
+    top: 0;
+    left: 0;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_2:hover {
+    top: 0;
+    left: 0;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_3 {
+    top: 0;
+    left: 0;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_3:hover {
+    top: 0;
+    left: 0;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_3:hover .img_burger_usluga_3 {
+    width: 108px;
+    height: 108px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_3:hover .img_burger_usluga_3 .krovlya_img {
+    width: 108px;
+    height: 98px;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_3:hover .img_burger_usluga_3 .krovlya_img:hover {
+    width: 118px !important;
+    height: 98px !important;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_4 {
+    top: 0;
+    left: 0;
+  }
+  body main .sec4 .sec_4 .all_uslugi .burger_usluga_4:hover {
+    top: 0;
+    left: 0;
+  }
+  body main .sec4 .sec_4 .voprosi_esty h2 {
+    font-size: 38px;
+  }
+  body main .sec4 .sec_4 .voprosi_esty .voprosi .voprosi_div p {
+    font-size: 18px;
+  }
+  body main .sec5 .sec_5 {
+    height: 550px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_1 h1 {
+    font-size: 20px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 {
+    width: 100%;
+    height: 360px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form {
+    height: 345px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 150px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 .input_name_konsult {
+    width: 70%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n1 .input_tel_konsult {
+    width: 70%;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n2 {
+    gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 130px;
+  }
+  body main .sec5 .sec_5 .konsultati_div2 .box_konsult_2 form .label_n2 p {
+    width: 100%;
+    height: 55px;
+  }
+}
+@media screen and (max-width: 330px) {
+  body main .active_div .active {
+    left: 4% !important;
+  }
+  body main .konsultati_div {
+    padding: 17px 17px;
+    width: 280px;
+    height: 500px;
+  }
+  body main .konsultati_div .zakrit_konsult {
+    top: 1px;
+    right: 1px;
+    width: 50px;
+    height: 50px;
+  }
+  body main .konsultati_div .box_konsult_1 h1 {
+    font-size: 22px;
+  }
+  body main .konsultati_div .box_konsult_2 form {
+    height: 289px;
+    width: 100%;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+  body main .konsultati_div .box_konsult_2 form .label_n2 p {
+    width: 100%;
+  }
+  body main .sec1 .sec_1 {
+    height: 315px;
+  }
+  body main .sec1 .sec_1 .img_sec_1 img {
+    width: 145px;
+    height: 151px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    height: 120px;
+    padding-left: 10px;
+    padding-top: 0px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img {
+    width: 100px;
+    height: 35px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 .const_img img {
+    width: 100px;
+    height: 35px;
+  }
+  body main .sec1 .sec_1 .sec_1_div_1 h2 {
+    margin: 15px 0 0 0;
+    height: 70px;
+    line-height: 25px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    height: 240px;
+  }
+}
+@media screen and (max-width: 280px) {
+  body main .sec1 .sec_1 .sec_1_div_1 {
+    padding-left: 5px;
+  }
+  body main .sec2 .sec_2 .kompany_div .kompany_n_2 p {
+    height: 260px;
+  }
+}
+@font-face {
+  font-family: sans-serif;
+  src: url(/app/shrifts/microsoftsansserif.ttf);
+}
+@font-face {
+  font-family: stepe;
+  src: url(/app/shrifts/Steppe-Medium.ttf);
+}

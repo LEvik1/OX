@@ -1,0 +1,2410 @@
+
+// ------------------------------------------ MAXSON ---------------------------------------------------------------
+@mixin flex ($dis,$jus,$ali,$fl_d) {
+    display: $dis;
+    justify-content: $jus;
+    align-items: $ali;
+    flex-direction: $fl_d;
+}
+@mixin font ($td,$cr,$fw,$fs) {
+    font-family: sans-serif;
+    text-decoration: $td;
+    color: $cr;
+    font-weight: $fw;
+    font-size: $fs;
+}
+
+//  ----------------------------------- СЕМАНТИКА -----------------------------------------------------
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+    body {
+        // ----------------------------------- HEADER -------------------------------------------------------------
+        header{
+            z-index: 40 !important;
+            @include flex(flex,center,center,row);
+            width: 100%;
+            height: 80px;
+            border-bottom: 1.5px solid;
+            background-color: white;
+            border-color: rgb(212, 242, 16);
+            position: fixed;
+            .heade {
+                max-width: 1920px;
+                @include flex(flex,space-between,center,row);
+                width: 95%;
+                .header_1 {
+                    @include flex(flex,space-between,center,row);
+                    width: 210px;
+                    .oxmetal_img {
+                        cursor:pointer;
+                         img {
+                            width: 135px;
+                            height: 35px;
+                        }
+                    }
+                    .search {
+                        @include flex(flex,center,center,row);
+                        width: 45px;
+                        height: 35px;
+                        border-radius: 25px;
+                        background-color: rgb(212, 242, 16);
+                        img {
+                            width: 30px;
+                            height: 30px;
+                        }
+                    }
+                }
+                .header_2 {
+                    @include flex(flex,space-between,center,row);
+                    width: 400px;
+                    .catalog {
+                        @include font (none,black,500,16px);
+                    }
+                    .konsultatiy {
+                        width: 210px;
+                        height: 50px;
+                        background-color: rgb(212, 242, 16);
+                        border: none;
+                        clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+                        cursor: pointer;
+                        @include font (none,black,500,18px);
+                    }
+                    // .konsultatiy:hover {
+                    //     color: white;
+                    //     background-color: rgb(212, 242, 16);
+                    // }
+            }
+            .burger_menu {
+                z-index: 41;
+                display: none;
+                width: 35px;
+                height: 35px;
+                cursor: pointer;
+                transition: all 0.3s ease-in;
+                .burger {
+                    width: 35px;
+                    height: 6px;
+                    display: block;
+                    background-color: rgb(45, 45, 45);
+                    position: absolute;
+                }
+                .burger1 {
+                    top: 30%;
+                    // margin: 0;
+                }
+                .burger2 {
+                    top: 50%;
+                    // margin: 13px 0;
+                }
+                .burger3 {
+                    top: 70%;
+                    // margin-top: 25px;
+                }
+                .act_1 {
+                    transform: rotate(45deg) translate(7px, 10px);
+                }
+                .act_2 {
+                    opacity: 0;
+                }
+                .act_3 {
+                    transform: rotate(-45deg) translate(12px, -15px);
+                }
+            }
+        }
+        // ----------------------------------- MAIN ------------------------------------------------------------
+
+    }
+    main {
+        width: 100%;
+        @include flex(flex,center,center,column);
+        //  ----------------------------------- BURGER-MENU -----------------------------------------------------
+        .active_div {
+                display: flex;
+                justify-content: end;
+            aside {
+                @include flex(flex,center,center,column);
+                position: absolute;
+                width: 300px;
+                background-color: white;
+                border: 1px solid black;
+                box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+                border-radius: 0px;
+                // background-color: rgb(14, 14, 14);
+                height: 80%;
+                transition: all 300ms ease-in-out;
+                z-index: 50;
+            }
+            .not_active {
+                @include flex(flex,space-evenly,center,column);
+                top: 12%;
+                left: 100%;
+                position: fixed;
+                .search2 {
+                    padding: 12px 24px;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    @include flex(flex,space-between,center,row);
+                    width: 170px;
+                    height: 40px;
+                    background-color: rgb(212, 242, 16);
+                    clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+                    @include font (none,black,500,18px);
+                    img {
+                        width: 35px;
+                        height: 35px;
+                    }
+                }
+                .catalog {
+                    @include font (none,black,500,18px);
+                }
+                .konsultatiy {
+                    width: 210px;
+                    height: 50px;
+                    background-color: rgb(212, 242, 16);
+                    border: none;
+                    clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+                    cursor: pointer;
+                }
+            }
+            .active {
+                left: 55% !important;
+            }
+        }
+        .modal_bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+            background-color: #0000005d;
+            opacity: 1;
+            transition: all 200ms ease-in;
+        }
+        .modal_bg:hover {
+            background-color: #0000003d;
+        }
+        .konsultati_div_show {
+            display: inline !important;
+        }
+        //  ----------------------------------- MODAL-WINDOW-KONSULTATIY -----------------------------------------------------
+        .konsultati_div {
+            display: none;
+            position: fixed;
+            width: 1000px;
+            height: 505px;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            padding: 37px 100px;
+            background-color: white;
+            border-radius: 5px;
+            z-index: 9999;
+                .zakrit_konsult {
+                    @include flex(flex,center,center,column);
+                    background-color: white;
+                    border-radius: 25px;
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    width: 50px;
+                    height: 50px;
+                    cursor: pointer;
+                    // clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+                    transition: transform 200ms ease, border 200ms ease, background-color  200ms  ease;
+                    
+                    img {
+                        opacity: 50%;
+                        transition: all 200ms ease-in;
+                        width: 32px;
+                        height: 32px;
+                    }
+                }
+                .zakrit_konsult:hover {
+                    background-color: rgb(212, 242, 16);
+                    img {
+                        opacity: 100%;
+                    }
+                }
+                    .box_konsult_1 {
+                        @include flex(flex,center,center,column);
+                        width: 100%;
+                        h1 {
+                            width: 100%;
+                            text-align: center;
+                            @include font (none,black,800,48px);
+                        }
+                        p {
+                            width: 100%;
+                            text-align: center;
+                            @include font (none,black,500,14px);
+                        }
+                    }
+                    .box_konsult_2 {
+                        padding-top:20px;
+                        form {
+                            width: 560px;
+                            height: 169px;
+                            @include flex(flex,space-between,start,column);
+                            .label_n1 {
+                                @include flex(flex,start,center,row);
+                                gap: 30px;
+                                width: 560px;
+                                height: 55px;
+                                .inputs_konsult {
+                                    all: unset;
+                                    border-bottom: 1px solid #1e1e1e;
+                                    padding: 13px 20px;
+                                }
+                                    .input_tel_konsult {
+                                        width: 100px; 
+                                        all: unset;
+                                        cursor: pointer;
+                                        width: 200px;
+                                        border-bottom: 1px solid #1e1e1e;
+                                        padding: 13px 20px;
+                                    }
+                                .input_name_konsult {
+                                    width: 318px;
+                                    cursor: pointer;
+                                }
+                                
+                            }
+                            .label_n2 {
+                                width: 100%;
+                                @include flex(flex,space-between,center,row);
+                                button {
+                                    @include font (none,black,500,18px);
+                                    width: 210px;
+                                    height: 50px;
+                                    background-color: rgb(212, 242, 16);
+                                    border: none;
+                                    clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+                                    cursor: pointer;
+                                }
+                                p {
+                                    width: 306px;
+                                    @include font (none,rgb(50, 50, 50),500,12px);
+                                }
+                            }
+                            
+                        }
+                    }
+        }
+        //  ----------------------------------- SEC-1 -----------------------------------------------------
+        .sec1 {
+            max-width: 1920px;
+            width: 100%;
+            @include flex(flex,center,center,column);
+            .sec_1 {
+                width: 100%;
+                height: 771px;
+                @include flex(flex,start,center,row);
+                .sec_1_div_1 {
+                    padding-left: 25px;
+                    padding-bottom: 70px;
+                    height: 681px;
+                    @include flex(flex,end,start,column);
+                    .const_img {
+                        width: 240px;
+                        height: 120px;
+                        @include flex(flex,center,center,column);
+                        img {
+                            height: 70px;
+                            width: 240px;
+                        }
+                    }
+                    h2 {
+                        width: 660px;
+                        height: 157px;
+                        line-height: 75px;
+                        @include font (none,black,800,65px);
+                        opacity: 90%;
+                    }
+                    p {
+                        @include font (none,#6a6a6a,400,30px);
+                        width: 760px;
+                        height: 80px;
+                    }
+                }
+            }
+        }
+        // rgb(197 229 0)
+        //  ----------------------------------- SEC-2 -----------------------------------------------------
+        .sec2 {
+            width: 90%;
+            @include flex(flex,center,center,column);
+            .sec_2 {
+                max-width: 1920px;
+                width: 100%;
+                @include flex(flex,center,center,column);
+                .kompany_div {
+                    width: 100%;
+                    @include flex(flex,space-between,center,column);
+                    .kompany_n_1 {
+                        
+                        h2 {
+                            @include font (none,black,800,48px);
+                            width: 380px;
+                            height: 61px;
+                        }
+                    }
+                    .kompany_n_2 {
+                        margin-top: 50px;
+                        width: 100%;
+                        height: 170px;
+                        @include flex(flex,space-between,center,row);
+                        img {
+                            width: 390px;
+                            height: 105px;
+                        }
+                        p {
+                            @include font (none,black,500,20px);
+                            line-height: 30px;
+                            width: 688px;
+                            height: 120px;
+                            opacity: 75%;
+                        }
+                    }
+                }
+                .rabota_kompany_div {
+                    margin-top: 50px;
+                    height: 200px;
+                    width: 100%;
+                    @include flex(flex,space-between,center,row);
+                    .items_div {
+                        height: 100%;
+                        @include flex(flex,space-between,center,column);
+                        h1 {
+                            height: 92px;
+                            @include flex(flex,center,center,row);
+                            @include font (none,black,800,96px);
+                        }
+                        p {
+                            text-align: center;
+                            height: 60px;
+                            @include font (none,black,500,20px);
+                        }
+                    }
+                    .item_1 {
+                        width: 250px;
+                        h1 {
+                            width: 246px;
+                        }
+                        p {
+                            width: 135px;
+                        }
+                    }
+                    .item_2 {
+                        width: 285px;
+                        h1 {
+                            width: 283px;
+                        }
+                        p {
+                            width: 119px;
+                        }
+                    }
+                    .item_3 {
+                        width: 146px;
+                        h1 {
+                            width: 146px;
+                        }
+                        p {
+                            margin-bottom: 25px;
+                            width: 134px;
+                            height: 30px !important;
+                        }
+                    }
+                    .item_4 {
+                        width: 192px;
+                        h1 {
+                            width: 146px;
+                        }
+                        p {
+                            width: 192px;
+                        }
+                    }
+                }
+            }
+        }
+        //  ----------------------------------- SEC-3 -----------------------------------------------------
+        .sec3 {
+            width: 100%;
+            @include flex(flex,center,center,column);
+            .sec_3 {
+                margin-top: 80px;
+                width: 90%;
+                max-width: 1920px;
+                @include flex(flex,start,center,column);
+                .o_kompany_1 {
+                    @include flex(flex,space-between,flex-start,row);
+                    width: 75%;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    align-self: flex-start;
+                }
+                .o_kompany_2 {
+                    @include flex(flex,space-between,flex-start,row);
+                    width: 75%;
+                    flex-wrap: wrap;
+                    gap: 15px;
+                    align-self: flex-end;
+                }
+                .o_kompany_all {
+                    .div_o_kompany {
+                        @include flex(flex,start,start,column);
+                        width: 273px;
+                        gap: 15px;
+                        border-top: #d6d6d6 1px solid;
+                        padding-top: 25px;
+                        h2 {
+                            @include font (none,black,700,29px);
+                        }
+                        p {
+                            @include font (none,black,500,16px);
+                            opacity: 65%;
+                            line-height: 25px;
+                        }
+                    }
+                }
+            }
+        }
+        //  ----------------------------------- SEC-4 -----------------------------------------------------
+        .sec4 {
+            width: 100%;
+            @include flex(flex,center,center,column);
+            .sec_4 {
+                padding-top: 80px;
+                width: 90%;
+                @include flex(flex,center,center,column);
+                .vidi_uslug {
+                    h2 {
+                        @include font (none,black,700,48px);
+                    }
+                }
+                .all_uslugi {
+                    @include flex(flex,center,center,column);
+                    padding-top: 200px;
+                    padding-bottom: 200px;
+                    // display: grid;
+                    // grid-template-columns: repeat(3/1fr);
+                    // grid-template-rows: repeat(3/1fr);
+                    position: relative;
+                    .burger_usluga {
+                        height: 116px;
+                        @include flex(flex,space-between,center,row);
+                        position: absolute;
+                        cursor: pointer;
+                        // overflow: hidden;
+                        transition: all 200ms ease-in;
+                        h2 {
+                            @include font (none,black,700,24px);
+                            opacity: 65%;
+                            transition: all 200ms ease-in;
+                        }
+                        h2:hover {
+                                @include font (none,rgb(144, 164, 15),700,24px);
+                                opacity: 100%;
+                        }
+                        // .h2_usluga_class {
+                        //     display: none;
+                        // }
+                        .img_burger_usluga {
+                            @include flex(flex,center,center,column);
+                            width: 116px;
+                            height: 116px;
+                            // // transform: rotate(33.5deg);
+                            // clip-path: polygon(
+                            //     0% 33%,    /* Верхний левый угол */
+                            //     25% 0%,    /* Верхний центральный угол */
+                            //     75% 0%,    /* Верхний правый угол */
+                            //     100% 33%,  /* Нижний правый угол */
+                            //     75% 66%,   /* Нижний центральный угол */
+                            //     25% 66%    /* Нижний левый угол */
+                            // );
+                        }
+                         
+                    }
+                    .burger_usluga:hover {
+                        .img_burger_usluga {
+                            width: 98px;
+                            height: 98px;
+                            img {
+                                width: 98px;
+                                height: 98px;
+                            }
+                            .krovlya_img {
+                                width: 128px !important;
+                                height: 128px !important;
+                            }
+                        }  
+                    }
+                    .burger_usluga_1 {
+                        // width: 116px;
+                        width: 346px;
+                        top: 10%;
+                        right: 50%;
+                        // grid-column: 1/2;
+                        // grid-row: 1/2;
+                        h2 {
+                            opacity: 0%;
+                            transform: translateX(150px);
+                        }
+                    }
+                    .burger_usluga_1:hover {
+                        width: 346px;
+                        top: 10%;
+                        right: 50%;
+                        // grid-column: 1/2;
+                        // grid-row: 1/2;
+                        // .h2_usluga_class {
+                        //     display: inline !important;
+                        // }
+                        h2 {
+                            opacity: 65%;
+                            transform: translateX(0px);
+                        }
+                    }
+                    .burger_usluga_2 {
+                        // width: 116px;
+                        width: 240px;
+                        top: 40%;
+                        right: 70%;
+                        // grid-column: 1/2;
+                        // grid-row: 2/3;
+                        h2 {
+                            opacity: 0%;
+                            transform: translateX(150px);
+                        }
+                    }
+                    .burger_usluga_2:hover {
+                        width: 240px;
+                        top: 40%;
+                        right: 50%;
+                        // grid-column: 1/2;
+                        // grid-row: 2/3;
+                        // .h2_usluga_class {
+                        //     display: inline !important;
+                        // }
+                        h2 {
+                            opacity: 65%;
+                            transform: translateX(0px);
+                        } 
+                    }
+                    
+                    .burger_usluga_3 {
+                        // width: 116px;
+                        width: 240px;
+                        top: 20%;
+                        left: 10%;
+                        // grid-column: 2/3;
+                        // grid-row: 1/2;
+                        h2 {
+                            opacity: 0%;
+                            transform: translateX(-150px);
+                        }
+                    }
+                    .burger_usluga_3:hover {
+                        width: 240px;
+                        // .h2_usluga_class {
+                        //     display: inline !important;
+                        // }
+                        h2 {
+                            opacity: 65%;
+                            transform: translateX(0px);
+                        }
+                    }
+                    .burger_usluga_4 {
+                        // width: 116px;
+                        width: 235px;
+                        top: 50%;
+                        left: 10%;
+                        // grid-column: 2/3;
+                        // grid-row: 2/3;
+                        h2 {
+                            opacity: 0%;
+                            transform: translateX(-100px);
+                        }
+                    }
+                    .burger_usluga_4:hover {
+                        width: 235px;
+                        top: 50%;
+                        left: 10%;
+                        // .h2_usluga_class {
+                        //     display: inline !important;
+                        // }
+                        h2 {
+                            opacity: 65%;
+                            transform: translateX(0px);
+                        }
+                    }
+                }
+                .open_katalog {
+                    a {
+                        padding: 16px 50px;
+                        margin-top: 100px;
+                        @include font (none,black,700,16px);
+                        width: 300px;
+                        height: 49px;
+                        background-color: rgb(212, 242, 16);
+                        border: none;
+                        clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+                        cursor: pointer;
+                    }
+                }
+                .voprosi_esty {
+                    padding-top: 150px;
+                    h2 {
+                        @include font (none,black,700,48px);
+                    }
+                    .voprosi {
+                        width: 1000px;
+                        .voprosi_div {
+                            border-bottom: 0.3px solid rgb(70, 70, 70);
+                            transition: all 300ms ease-in;
+                            overflow: hidden;
+                            margin-top: 10px;
+                            margin-bottom: 10px;
+                            :nth-child(2) {
+                                margin-top: 10px;
+                            }
+                            h3 {
+                                @include font (none,black,700,20px);
+                                display: block;
+                                cursor: pointer;
+                                padding-top: 25px;
+                                width: 100%;
+                                box-sizing: border-box;
+                                z-index: 100;
+                                margin: 0 0 5px;
+                                transition: color .35s;
+                                line-height: 24px;
+                                letter-spacing: 0em;
+                                text-align: left;
+                                word-break: break-word;
+                                transition: all 200ms ease-in;
+                            }
+                            h3:before {
+                                content: url(../images/icons8-добавить-50.png);
+                                filter: invert(0%);
+                                float: right;
+                                width: 20px;
+                                height: 20px;
+                                margin-bottom: 15px;
+                                margin-right: 15px;
+                                @include flex(flex,center,center,column);
+                                transition: all 200ms ease;
+                            }
+                            h3.active_otvet:before {
+                                content: url(../images/icons8-минус-50.png);
+                            }
+                            p {
+                                @include font (none,gray,300,20px);
+                                text-align: left;
+                                transition: all 200ms ease-in;
+                                padding-top: 0px;
+                                padding-bottom: 0px;
+                                height: 0;
+                                // margin-top: 30px;
+                            }
+                            .voprosi_p_show {
+                                height: auto;
+                                padding: 16px 0px;
+                                line-height: 28px;
+                                margin-top: 0px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        //  ----------------------------------- SEC-5 -----------------------------------------------------
+        .sec5 {
+            width: 100%;
+            @include flex(flex,center,center,column);
+            .sec_5 {
+                padding-top: 150px;
+                width: 90%;
+                @include flex(flex,center,center,column);
+                .konsultati_div2 {
+                    @include flex(flex,center,center,column);
+                    width: 1000px;
+                    height: 505px;
+                    padding: 37px 100px;
+                    background-color: white;
+                    border-radius: 5px;
+                            .box_konsult_1 {
+                                @include flex(flex,center,center,column);
+                                width: 100%;
+                                h1 {
+                                    width: 100%;
+                                    text-align: center;
+                                    @include font (none,black,800,48px);
+                                }
+                            }
+                            .box_konsult_2 {
+                                padding-top:20px;
+                                form {
+                                    width: 560px;
+                                    height: 169px;
+                                    @include flex(flex,space-between,start,column);
+                                    .label_n1 {
+                                        @include flex(flex,start,center,row);
+                                        gap: 30px;
+                                        width: 560px;
+                                        height: 55px;
+                                        .inputs_konsult {
+                                            all: unset;
+                                            border-bottom: 1px solid #1e1e1e;
+                                            padding: 13px 20px;
+                                        }
+                                            .input_tel_konsult {
+                                                width: 100px; 
+                                                all: unset;
+                                                cursor: pointer;
+                                                width: 200px;
+                                                border-bottom: 1px solid #1e1e1e;
+                                                padding: 13px 20px;
+                                            }
+                                        .input_name_konsult {
+                                            width: 318px;
+                                            cursor: pointer;
+                                        }
+                                        
+                                    }
+                                    .label_n2 {
+                                        width: 100%;
+                                        @include flex(flex,space-between,center,row);
+                                        button {
+                                            @include font (none,black,500,18px);
+                                            width: 210px;
+                                            height: 50px;
+                                            background-color: rgb(212, 242, 16);
+                                            border: none;
+                                            clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+                                            cursor: pointer;
+                                        }
+                                        p {
+                                            width: 306px;
+                                            @include font (none,rgb(50, 50, 50),500,12px);
+                                        }
+                                    }
+                                    
+                                }
+                            }
+                }
+            }
+        }
+    }
+    //  --------------------------------------- FOOTER -----------------------------------------------------
+    footer {
+        width: 100%;
+        @include flex(flex,center,center,column);
+        
+        .footer {
+            max-width: 1920px;
+            width: 90%;
+            @include flex(flex,space-between,start,row);
+            border-top: grey 0.1px solid ;
+            // display: grid;
+            // grid-template-columns: repeat(5/1fr);
+            // grid-template-rows: repeat(2/1fr);
+            padding-top: 100px;
+            padding-bottom: 100px;
+            padding-left: 10px;
+            padding-right: 10px;
+            .footer_sayts {
+                // width: 90px;
+                @include flex(flex,space-between,start,column);
+                h2 {
+                    @include font (none,black,500,24px);
+                }
+                .h2_div_footer {
+                    @include flex(flex,start,start,column);
+                    margin-top: 25px;
+                    gap: 17px;
+                    font-family: Inter;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 14px;
+                    letter-spacing: 0em;
+                    .p_footer_div {
+                        @include font (none,black,400,12px);
+                        cursor: pointer;
+                        
+                    }
+                    .p_footer_div:hover {
+                        @include font (none,rgb(197 229 0),400,12px);
+                    }
+                    .contacti_footer {
+                        @include flex(flex,space-between,center,row);
+                        a {
+                            @include font (none,black,400,12px);
+                            padding-left: 10px;
+                        }
+                        a:hover {
+                            @include font (none,rgb(197 229 0),400,12px);
+                        }
+                        
+                    }
+                }
+            }
+        }
+    }
+    // KURSOR VVERX ----------------------------------------------------------------------------------
+    .tolko_verx {
+        position: absolute;
+        right: 2%;
+        bottom: 3%;
+        position: fixed;
+        cursor: pointer;
+        
+    }
+}
+}
+
+// --------------------------------------- ADAPTIVE -----------------------------------------------------
+
+
+// ---------------------------------------- ADAPTIVE ----------------------------------------------------
+
+
+// ----------------------------------------- ADAPTIVE ---------------------------------------------------
+
+
+// ------------------------------------------ ADAPTIVE --------------------------------------------------
+
+
+// ------------------------------------------- ADAPTIVE -------------------------------------------------
+@media screen and (max-width:1500px) {
+    body {
+        // header {
+        //     .heade {
+
+        //     }
+        // }
+        main {
+            .konsultati_div {
+                width: 800px;
+                height: 405px;
+                padding: 27px 80px;
+                .box_konsult_1 {
+                    h1 {
+                        @include font (none,black,700,35px);
+                    }
+                    p {
+                        @include font (none,black,400,13.5px);
+                    }
+                }
+            }
+            .sec1 {
+                .sec_1 {
+                    height: 671px;
+                    .img_sec_1 {
+                        img {
+                            width: 575px;
+                            height: 581px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        h2 {
+                            width: 530px;
+                            height: 157px;
+                            line-height: 65px;
+                            @include font (none,black,800,55px);
+                        }
+                        p {
+                            @include font (none,#6a6a6a,400,25px);
+                        width: 730px;
+                        height: 80px;
+                        }
+                    }
+                }
+            }
+        }
+        // footer {
+    
+        // }
+    }
+}
+@media screen and (max-width:1340px) {
+    body {
+        // header {
+        //     .heade {
+
+        //     }
+        // }
+        main {
+            .sec1 {
+                .sec_1 {
+                    height: 471px;
+                    .img_sec_1 {
+                        img {
+                            width: 475px;
+                            height: 481px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        height: 581px;
+                        .const_img {
+                            width: 200px;
+                            height: 100px;
+                            @include flex(flex,center,center,column);
+                            img {
+                                height: 65px;
+                                width: 200px;
+                            }
+                        }
+                        h2 {
+                            width: 430px;
+                            height: 157px;
+                            line-height: 55px;
+                            @include font (none,black,800,45px);
+                        }
+                        p {
+                            @include font (none,#6a6a6a,400,20px);
+                        width: 600px;
+                        height: 80px;
+                        }
+                    }
+                }
+            }
+        }
+        // footer {
+    
+        // }
+    }
+}
+@media screen and (max-width:1100px) {
+    body {
+        // header {
+        //     .heade {
+
+        //     }
+        // }
+        main {
+            .sec1 {
+                .sec_1 {
+                    .img_sec_1 {
+                        img {
+                            width: 475px;
+                            height: 481px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        height: 400px;
+                        padding-left: 25px;
+                        padding-bottom: 0px;
+                        .const_img {
+                            width: 180px;
+                            height: 70px;
+                            @include flex(flex,center,center,column);
+                            img {
+                                height: 65px;
+                                width: 180px;
+                            }
+                        }
+                        h2 {
+                            width: 340px;
+                            height: 90px;
+                            line-height: 45px;
+                            @include font (none,black,800,35px);
+                            margin: 25px 0px;
+                        }
+                        p {
+                            @include font (none,#6a6a6a,400,18px);
+                        width: 370px;
+                        height: 40px;
+                        }
+                    }
+                }
+            }
+        }
+        // footer {
+    
+        // }
+    }
+}
+@media screen and (max-width:1080px) {
+    body {
+        // header {
+        //     .heade {
+
+        //     }
+        // }
+        main {
+            .konsultati_div {
+                width: 660px;
+                height: 405px;
+                padding: 27px 40px;
+                .box_konsult_1 {
+                    h1 {
+                        @include font (none,black,700,32px);
+                    }
+                    p {
+                        @include font (none,black,400,13px);
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        .kompany_n_1 {
+                            h2 {
+                                @include font (none,black,800,38px);
+                            }
+                        }
+                        .kompany_n_2 {
+                            img {
+                                width: 300px;
+                                height: 80px;
+                            }
+                            p {
+                                width: 600px;
+                                height: 140px;
+                                @include font (none,black,400,18px);
+                            }
+                        }
+                    }
+                    .rabota_kompany_div {
+                        height: 500px;
+                        display: grid;
+                        grid-template-columns: repeat(3/1fr);
+                        grid-template-rows: repeat(3/1fr);
+                        justify-content: space-around;
+                        .items_div {
+                            width: 310px;
+                        }
+                        .item_1 {
+                            grid-column: 1/2;
+                            grid-row: 1/2;
+                        }
+                        .item_2 {
+                            grid-column: 2/3;
+                            grid-row: 1/2;
+                        }
+                        .item_3 {
+                            grid-column: 1/2;
+                            grid-row: 2/3;
+                        }
+                        .item_4 {
+                            grid-column: 2/3;
+                            grid-row: 2/3;
+                        }
+                    }
+                }
+            }
+            .sec3 {
+                .sec_3 {
+                    width: 80%;
+                    .o_kompany_all {
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+                }
+            }
+            .sec4 {
+                .sec_4 {
+                    .voprosi_esty {
+                        @include flex(flex,center,center,column);
+                        .voprosi {
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+            .sec5 {
+                .sec_5 {
+                    .konsultati_div2 {
+                        width: 90%;
+                        padding: 0px;
+                    }
+                }
+            }
+        }
+        // footer {
+    
+        // }
+    }
+}
+@media screen and (max-width:880px) {
+    body {
+        // header {
+        //     .heade {
+
+        //     }
+        // }
+        main {
+            .konsultati_div {
+                width: 660px;
+                height: 405px;
+                padding: 27px 40px;
+                .box_konsult_1 {
+                    h1 {
+                        @include font (none,black,700,28px);
+                    }
+                    p {
+                        @include font (none,black,400,13px);
+                    }
+                }
+            }
+            .sec1 {
+                .sec_1 {
+                    .img_sec_1 {
+                        img {
+                            width: 375px;
+                            height: 381px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        height: 300px;
+                        padding-left: 25px;
+                        padding-bottom: 0px;
+                        .const_img {
+                            width: 180px;
+                            height: 70px;
+                            @include flex(flex,center,center,column);
+                            img {
+                                height: 65px;
+                                width: 180px;
+                            }
+                        }
+                        h2 {
+                            width: 310px;
+                            height: 90px;
+                            line-height: 45px;
+                            @include font (none,black,800,32px);
+                            margin: 25px 0px;
+                        }
+                        p {
+                            @include font (none,#6a6a6a,400,17px);
+                        width: 300px;
+                        height: 55px;
+                        }
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        .kompany_n_1 {
+                            h2 {
+                                width: 250px;
+                                height: 40px;
+                                @include font (none,black,800,32px);
+                            }
+                        }
+                        .kompany_n_2 {
+                            height: 250px;
+                            img {
+                                width: 250px;
+                                height: 70px;
+                            }
+                            p {
+                                width: 400px;
+                                height: 230px;
+                                @include font (none,black,400,17px);
+                            }
+                        }
+                    }
+                    .rabota_kompany_div {
+                        height: 500px;
+                        display: grid;
+                        grid-template-columns: repeat(3/1fr);
+                        grid-template-rows: repeat(3/1fr);
+                        justify-content: space-around;
+                        .items_div {
+                            width: 260px;
+                            h1 {
+                                @include font (none,black,800,78px);
+                            }
+                        }
+                        .item_1 {
+                            grid-column: 1/2;
+                            grid-row: 1/2;
+                        }
+                        .item_2 {
+                            grid-column: 2/3;
+                            grid-row: 1/2;
+                        }
+                        .item_3 {
+                            grid-column: 1/2;
+                            grid-row: 2/3;
+                        }
+                        .item_4 {
+                            grid-column: 2/3;
+                            grid-row: 2/3;
+                        }
+                    }
+                }
+            }
+            .sec3 {
+                .sec_3 {
+                    width: 80%;
+                    .o_kompany_all {
+                        width: 100%;
+                        justify-content: space-between;
+                    }
+                }
+            }
+            .sec4 {
+                .sec_4 {
+                    .voprosi_esty {
+                        @include flex(flex,center,center,column);
+                        .voprosi {
+                            width: 90%;
+                        }
+                    }
+                }
+            }
+            .sec5 {
+                .sec_5 {
+                    .konsultati_div2 {
+                        width: 90%;
+                        padding: 0px;
+                    }
+                }
+            }
+        }
+        // footer {
+    
+        // }
+    }
+}
+@media screen and (max-width:720px) {
+
+    body {
+        header {
+            .heade {
+                .burger_menu {
+                    display: flex;
+                }
+                .header_2 {
+                    display: none;
+                }
+
+            }
+            
+        }
+        main {
+            .konsultati_div {
+                width: 560px;
+                height: 360px;
+                padding: 27px 47px;
+                .box_konsult_1 {
+                    h1 {
+                        width: 80%;
+                        @include font (none,black,700,28px);
+                    }
+                    p {
+                        margin-top: 10px;
+                        width: 80%;
+                        @include font (none,black,400,13px);
+                    }
+                }
+            
+            .box_konsult_2 {
+                form {
+                    width: 460px;
+                    height: 229px;
+                    @include flex(flex,space-between,center,column);
+                    .label_n1 {
+                        @include flex(flex,start,start,column);
+                        gap: 30px;
+                        width: 240px;
+                        height: 130px;
+                        .inputs_konsult {
+                            all: unset;
+                            border-bottom: 1px solid #1e1e1e;
+                            padding: 13px 20px;
+                        }
+                            .input_tel_konsult {
+                                width: 100px; 
+                                all: unset;
+                                cursor: pointer;
+                                width: 200px;
+                                border-bottom: 1px solid #1e1e1e;
+                                padding: 13px 20px;
+                            }
+                        .input_name_konsult {
+                            width: 200px;
+                            cursor: pointer;
+                        }
+                        
+                    }
+                    .label_n2 {
+                        width: 100%;
+                        @include flex(flex,space-between,center,row);
+                        button {
+                            @include font (none,black,500,18px);
+                            width: 190px;
+                            height: 45px;
+                            background-color: rgb(212, 242, 16);
+                            border: none;
+                            clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+                            cursor: pointer;
+                        }
+                        p {
+                            width: 220px;
+                            @include font (none,rgb(50, 50, 50),400,12px);
+                        }
+                    }
+                    
+                }
+            }
+        }
+            .sec1 {
+                .sec_1 {
+                    .img_sec_1 {
+                        img {
+                            width: 325px;
+                            height: 331px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        height: 260px;
+                        padding-left: 25px;
+                        padding-bottom: 0px;
+                        .const_img {
+                            width: 150px;
+                            height: 50px;
+                            @include flex(flex,center,center,column);
+                            img {
+                                height: 50px;
+                                width: 150px;
+                            }
+                        }
+                        h2 {
+                            width: 240px;
+                            height: 70px;
+                            line-height: 35px;
+                            @include font (none,black,800,28px);
+                            margin: 25px 0px;
+                        }
+                        p {
+                            @include font (none,#6a6a6a,400,16px);
+                        width: 250px;
+                        height: 55px;
+                        }
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        .kompany_n_1 {
+                            h2 {
+                                width: 250px;
+                                height: 40px;
+                                @include font (none,black,800,32px);
+                            }
+                        }
+                        .kompany_n_2 {
+                            height: 260px;
+                            img {
+                                width: 210px;
+                                height: 60px;
+                            }
+                            p {
+                                width: 300px;
+                                height: 260px;
+                                @include font (none,black,400,16px);
+                            }
+                        }
+                    }
+                    .rabota_kompany_div {
+                        height: 500px;
+                        display: grid;
+                        grid-template-columns: repeat(3/1fr);
+                        grid-template-rows: repeat(3/1fr);
+                        justify-content: space-around;
+                        .items_div {
+                            width: 240px;
+                            h1 {
+                                @include font (none,black,800,68px);
+                            }
+                        }
+                        .item_1 {
+                            grid-column: 1/2;
+                            grid-row: 1/2;
+                        }
+                        .item_2 {
+                            grid-column: 2/3;
+                            grid-row: 1/2;
+                        }
+                        .item_3 {
+                            grid-column: 1/2;
+                            grid-row: 2/3;
+                        }
+                        .item_4 {
+                            grid-column: 2/3;
+                            grid-row: 2/3;
+                        }
+                    }
+                }
+            }
+            .sec3 {
+                .sec_3 {
+                    width: 80%;
+                    .o_kompany_all {
+                        width: 100%;
+                        justify-content: space-between;
+                        .div_o_kompany {
+                            width: 250px;
+                            h2 {
+                                @include font (none,black,700,23px);
+                            }
+                            p {
+                                @include font (none,black,500,15px);
+                            }
+                        }
+                    }
+                }
+            }
+            .sec4 {
+                .sec_4 {
+                    .all_uslugi {
+                        .burger_usluga {
+                            h2 {
+                                @include font (none,black,700,20px);
+                            }
+                            h2:hover {
+                                font-size: 20px;
+                            }
+                        }
+                    }
+                    .voprosi_esty {
+                        @include flex(flex,center,center,column);
+                        .voprosi {
+                            width: 90%;
+                        }
+                    }
+                    .vidi_uslug {
+                        h2 {
+                            @include font (none,black,700,37px);
+                        }
+                    }
+                }
+            }
+            .sec5 {
+                .sec_5 {
+                    .konsultati_div2 {
+                        width: 90%;
+                        padding: 0px;
+                    }
+                }
+            }
+        }
+        footer {
+            .footer {
+                @include flex(grid,space-between,start,row);
+                grid-template-columns: repeat(3/1fr);
+                grid-template-rows: repeat(3/1fr);
+                gap: 25px;
+                .footer_sayts {
+                    width: 200px;
+                }
+                .footer_sayt1 {
+                    grid-column: 1/2;
+                    grid-row: 1/2;
+                }
+                .footer_sayt2 {
+                    grid-column: 2/3;
+                    grid-row: 1/2;
+                }
+                .footer_sayt3 {
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+                }
+                .footer_sayt4 {
+                    grid-column: 2/3;
+                    grid-row: 2/3;
+                }
+            }
+        }
+    }
+}
+       
+
+@media screen and (max-width:650px) {
+
+    body {
+        header {
+            .heade {
+                .burger_menu {
+                    display: flex;
+                }
+                .header_2 {
+                    display: none;
+                }
+
+            }
+            
+        }
+        main {
+            .konsultati_div {
+                width: 560px;
+                height: 360px;
+                padding: 27px 47px;
+                .box_konsult_1 {
+                    h1 {
+                        width: 80%;
+                        @include font (none,black,700,28px);
+                    }
+                    p {
+                        margin-top: 10px;
+                        width: 80%;
+                        @include font (none,black,400,13px);
+                    }
+                }
+            
+            .box_konsult_2 {
+                form {
+                    width: 460px;
+                    height: 229px;
+                    @include flex(flex,space-between,center,column);
+                    .label_n1 {
+                        @include flex(flex,start,start,column);
+                        gap: 30px;
+                        width: 240px;
+                        height: 130px;
+                        .inputs_konsult {
+                            all: unset;
+                            border-bottom: 1px solid #1e1e1e;
+                            padding: 13px 20px;
+                        }
+                            .input_tel_konsult {
+                                width: 100px; 
+                                all: unset;
+                                cursor: pointer;
+                                width: 200px;
+                                border-bottom: 1px solid #1e1e1e;
+                                padding: 13px 20px;
+                            }
+                        .input_name_konsult {
+                            width: 200px;
+                            cursor: pointer;
+                        }
+                        
+                    }
+                    .label_n2 {
+                        width: 100%;
+                        @include flex(flex,space-between,center,row);
+                        button {
+                            @include font (none,black,500,18px);
+                            width: 190px;
+                            height: 45px;
+                            background-color: rgb(212, 242, 16);
+                            border: none;
+                            clip-path: polygon(8% 0%, 92% 0%, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+                            cursor: pointer;
+                        }
+                        p {
+                            width: 220px;
+                            @include font (none,rgb(50, 50, 50),400,12px);
+                        }
+                    }
+                    
+                }
+            }
+        }
+            .sec1 {
+                .sec_1 {
+                    .img_sec_1 {
+                        img {
+                            width: 325px;
+                            height: 331px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        height: 260px;
+                        padding-left: 25px;
+                        padding-bottom: 0px;
+                        .const_img {
+                            width: 150px;
+                            height: 50px;
+                            @include flex(flex,center,center,column);
+                            img {
+                                height: 50px;
+                                width: 150px;
+                            }
+                        }
+                        h2 {
+                            width: 240px;
+                            height: 70px;
+                            line-height: 35px;
+                            @include font (none,black,800,28px);
+                            margin: 25px 0px;
+                        }
+                        p {
+                            @include font (none,#6a6a6a,400,16px);
+                        width: 250px;
+                        height: 55px;
+                        }
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        .kompany_n_1 {
+                            h2 {
+                                width: 250px;
+                                height: 40px;
+                                @include font (none,black,800,32px);
+                            }
+                        }
+                        .kompany_n_2 {
+                            height: 260px;
+                            img {
+                                width: 210px;
+                                height: 60px;
+                            }
+                            p {
+                                width: 300px;
+                                height: 260px;
+                                @include font (none,black,400,16px);
+                            }
+                        }
+                    }
+                    .rabota_kompany_div {
+                        height: 500px;
+                        display: grid;
+                        grid-template-columns: repeat(3/1fr);
+                        grid-template-rows: repeat(3/1fr);
+                        justify-content: space-around;
+                        .items_div {
+                            width: 240px;
+                            h1 {
+                                @include font (none,black,800,68px);
+                            }
+                        }
+                        .item_1 {
+                            grid-column: 1/2;
+                            grid-row: 1/2;
+                        }
+                        .item_2 {
+                            grid-column: 2/3;
+                            grid-row: 1/2;
+                        }
+                        .item_3 {
+                            grid-column: 1/2;
+                            grid-row: 2/3;
+                        }
+                        .item_4 {
+                            grid-column: 2/3;
+                            grid-row: 2/3;
+                        }
+                    }
+                }
+            }
+            .sec3 {
+                .sec_3 {
+                    width: 80%;
+                    .o_kompany_all {
+                        width: 100%;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        .div_o_kompany {
+                            width: 100%;
+                            h2 {
+                                @include font (none,black,700,23px);
+                            }
+                            p {
+                                @include font (none,black,500,15px);
+                            }
+                        }
+                    }
+                }
+            }
+            .sec4 {
+                .sec_4 {
+                    .voprosi_esty {
+                        @include flex(flex,center,center,column);
+                        .voprosi {
+                            width: 90%;
+                        }
+                    }
+                    .vidi_uslug {
+                        h2 {
+                            @include font (none,black,700,37px);
+                        }
+                    }
+                }
+            }
+            .sec5 {
+                .sec_5 {
+                    .konsultati_div2 {
+                        width: 90%;
+                        padding: 0px;
+                    }
+                }
+            }
+        }
+        // footer {
+            
+        // }
+    }
+}
+@media screen and (max-width:600px) {
+    body {
+        main {
+            .sec1 {
+                .sec_1 {
+                    height: 421px;
+                    .img_sec_1 {
+                        img {
+                            width: 255px;
+                            height: 261px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        height: 260px;
+                        padding-left: 25px;
+                        padding-bottom: 0px;
+                        .const_img {
+                            width: 150px;
+                            height: 50px;
+                            @include flex(flex,center,center,column);
+                            img {
+                                height: 50px;
+                                width: 150px;
+                            }
+                        }
+                        h2 {
+                            width: 200px;
+                            height: 70px;
+                            line-height: 35px;
+                            @include font (none,black,800,22px);
+                            margin: 25px 0px;
+                        }
+                        p {
+                            display: none;
+                        }
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        .kompany_n_2 {
+                            height: 280px;
+                            flex-direction: column;
+                            img {
+                                width: 150px;
+                                height: 50px;
+                            }
+                            p {
+                                width: 100%;
+                                height: 50%;
+                            }
+                        }
+                    }
+                    .rabota_kompany_div {
+                        height: 450px;
+                        .items_div {
+                            p {
+                                font-size: 18px;
+                            }
+                        }
+                        .items_div {
+                            h1 {
+                                width: 160px;
+                                font-size: 48px;
+                            }
+                        }
+                    }
+                }
+            }
+            .sec4 {
+                .sec_4 {
+                    .all_uslugi {
+                        .burger_usluga_1 {
+                            width: 240px;
+                            top: 10%;
+                            right: 50%;
+                            h2 {
+                                font-size: 18px;
+                            }
+                        }
+                        .burger_usluga_1:hover {
+                            width: 240px;
+                            h2 {
+                                font-size: 18px;
+                            }
+                        }
+                    }
+                }
+            }
+            .sec5 {
+                .sec_5 {
+                    .konsultati_div2 {
+                        height: 300px;
+                        width: 100%;
+                        .box_konsult_1 {
+                            h1 {
+                                font-size: 38px;
+                            }
+                        }
+                        .box_konsult_2 {
+                            width: 100%;
+                            form {
+                                width: 100%;
+                                .label_n1 {
+                                    display: flex;
+                                    justify-content: start;
+                                    align-items: center;
+                                    flex-direction: row;
+                                    gap: 30px;
+                                    width: 100%;
+                                    height: 55px;
+                                    .input_name_konsult {
+                                        width: 35%;
+                                    }
+                                    .input_tel_konsult {
+                                        width: 35%;
+                                    }
+                                }
+                                .label_n2 {
+                                    button {
+                                        width: 150px;
+                                        height: 35px;
+                                        font-size: 14px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+                 
+        }
+    }
+    
+}
+@media screen and (max-width:550px) {
+    body {
+        main {
+            .active_div {
+                .active {
+                    left: 45% !important;
+                }
+            }
+            .konsultati_div {
+                width: 400px;
+                height: 500px;
+                .box_konsult_2 {
+                    form {
+                        height: 289px;
+                        width: 100%;
+                        .label_n2 {
+                            flex-direction: column;
+                            gap: 10px;
+                            p {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        .kompany_n_2 {
+                            height: 280px;
+                            flex-direction: column;
+                            img {
+                                width: 150px;
+                                height: 50px;
+                            }
+                            p {
+                                width: 100%;
+                                height: 50%;
+                            }
+                        }
+                    }
+                    .rabota_kompany_div {
+                        height: 450px;
+                        .items_div {
+                            width: 160px;
+                            p {
+                                font-size: 18px;
+                            }
+                            h1 {
+                                width: 160px;
+                                font-size: 48px;
+                            }
+                        }
+                    }
+                }
+            }
+            .sec4 {
+                .sec_4 {
+                    .all_uslugi {
+                        .burger_usluga {
+                            width: 200px !important;
+                            h2 {
+                                font-size: 16px !important;
+                                
+                            }
+                            .h2_usluga_class:hover {
+                                font-size: 16px;
+                            }
+                            .img_burger_usluga {
+                                
+                                img {
+                                    width: 96px;
+                                    height: 96px;
+                                }   
+                                .krovlya_img {
+                                    width: 136px;
+                                    height: 124px;
+                                }
+                            }
+                            .img_burger_usluga:hover {
+                                
+                                img {
+                                    width: 76px;
+                                    height: 76px;
+                                }   
+                                .krovlya_img {
+                                    width: 106px;
+                                    height: 94px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+}
+@media screen and (max-width: 480px) {
+    body {
+        main {
+            .active_div {
+                .active {
+                    left: 35% !important;
+                }
+            }
+            .sec1 {
+                .sec_1 {
+                    height: 375px;
+                    .img_sec_1 {
+                        img {
+                            width: 205px;
+                            height: 211px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        .const_img {
+                            img {
+                                width: 120px;
+                                height: 40px;
+                            }
+                        }
+                        height: 250px;
+                        h2 {
+                            height: 130px;
+                            width: 140px;
+                            font-size: 20px;
+                        }
+                    }
+                }
+            }
+            .sec5 {
+                .sec_5 {
+                    .konsultati_div2 {
+                        .box_konsult_1 {
+                            h1 {
+                                font-size: 28px;
+                            }
+                        }
+                        .box_konsult_2 {
+                            form {
+                                .label_n2 {
+                                    p {
+                                        width: 150px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        footer {
+            .footer {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(5/1fr);
+                .footer_sayts {
+                    width: 100%;
+                }
+                .footer_sayt1 {
+                    grid-column: 1/2;
+                    grid-row: 1/2;
+                }
+                .footer_sayt2 {
+                    grid-column: 1/2;
+                    grid-row: 2/3;
+                }
+                .footer_sayt3 {
+                    grid-column: 1/2;
+                    grid-row: 3/4;
+                }
+                .footer_sayt4 {
+                    grid-column: 1/2;
+                    grid-row: 4/5;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:450px) {
+    body {
+        header {
+            .heade {
+                .burger_menu {
+                    display: flex;
+                }
+                .header_1 {
+                    .search {
+                        display: none;
+                    }
+                }
+                .header_2 {
+                    display: none;
+                }
+
+            }
+            
+        }
+        // main {
+    
+        // }
+        // footer {
+    
+        // }
+    }
+}
+@media screen and (max-width:405px) {
+    body {
+        main {
+            .active_div {
+                .active {
+                    left: 25% !important;
+                }
+            }
+            .konsultati_div {
+                padding: 27px;
+                width: 300px;
+                height: 500px;
+                .zakrit_konsult {
+                    top: 1px;
+                    right: 1px;
+                    width: 50px;
+                    height: 50px;
+                }
+                .box_konsult_2 {
+                    form {
+                        height: 289px;
+                        width: 100%;
+                        .label_n2 {
+                            flex-direction: column;
+                            gap: 10px;
+                            p {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .sec1 {
+                .sec_1 {
+                    height: 355px;
+                    .img_sec_1 {
+                        img {
+                            width: 185px;
+                            height: 191px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        padding-left: 15px;
+                        padding-top: 35px;
+                        .const_img {
+                            width: 100px;
+                            height: 35px;
+                            img {
+                                width: 100px;
+                                height: 35px;
+                            }
+                        }
+                        h2 {
+                            
+                            font-size: 18px;
+                            width: 127px;
+                        }
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        height: 460px;
+                        .kompany_n_2 {
+                            height: 360px;
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+                    }
+                    .rabota_kompany_div {
+                        .items_div {
+                            width: 125px;
+                            h1 {
+                                width: 125px;
+                                font-size: 38px;
+                            }
+                            p {
+                                width: 125px;
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            .sec4 {
+                .sec_4 {
+                    .all_uslugi {
+                        width: 250px;
+                        height: 664px;
+                        padding: 100px 0 0 0;
+                        .burger_usluga {
+                            position: relative;
+                            h2 {
+                                opacity: 65%;
+                                transform: translateX(0px);
+                            }
+                        }
+                        .burger_usluga_1 {
+                            top: 0;
+                            left: 0;
+                        }
+                        .burger_usluga_1:hover {
+                            top: 0;
+                            left: 0;
+                        }
+                        .burger_usluga_2 {
+                            top: 0;
+                            left: 0;
+                        }
+                        .burger_usluga_2:hover {
+                            top: 0;
+                            left: 0;
+                        }
+                        .burger_usluga_3 {
+                            top: 0;
+                            left: 0;
+                        }
+                        .burger_usluga_3:hover {
+                            top: 0;
+                            left: 0;
+                            .img_burger_usluga_3 {
+                                width: 108px;
+                                height: 108px;
+                                .krovlya_img {
+                                    width: 108px;
+                                    height: 98px;
+                                }
+                                .krovlya_img:hover {
+                                    width: 118px !important;
+                                    height: 98px !important;
+                                }
+                            }
+                            
+                        }
+                        .burger_usluga_4 {
+                            top: 0;
+                            left: 0;
+                        }
+                        .burger_usluga_4:hover {
+                            top: 0;
+                            left: 0;
+                        }
+                    }
+                    .voprosi_esty {
+                        h2 {
+                            font-size: 38px;
+                        }
+                        .voprosi {
+                            .voprosi_div {
+                                p {
+                                    font-size: 18px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .sec5 {
+                .sec_5 {
+                    height: 550px;
+                    .konsultati_div2 {
+                        
+                        .box_konsult_1 {
+                            h1 {
+                                font-size: 20px;
+                            }
+                        }
+                        .box_konsult_2 {
+                            width: 100%;
+                            height: 360px;
+                            form {
+                                height: 345px;
+                                .label_n1 {
+                                    @include flex(flex,center,center,column);
+                                    height: 150px;
+                                    .input_name_konsult {
+                                        width: 70%;
+                                    }
+                                    .input_tel_konsult {
+                                        width: 70%;
+                                    }
+                                }
+                                .label_n2 {
+                                    gap: 10px;
+                                    @include flex(flex,center,center,column);
+                                    height: 130px;
+                                    p {
+                                        width: 100%;
+                                        height: 55px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:330px) {
+    body {
+        main {
+            .active_div {
+                .active {
+                    left: 4% !important;
+                }
+            }
+            .konsultati_div {
+                padding: 17px 17px;
+                width: 280px;
+                height: 500px;
+                .zakrit_konsult {
+                    top: 1px;
+                    right: 1px;
+                    width: 50px;
+                    height: 50px;
+                }
+                .box_konsult_1 {
+                    h1 {
+                        font-size: 22px;
+                    }
+                }
+                .box_konsult_2 {
+                    form {
+                        height: 289px;
+                        width: 100%;
+                        .label_n2 {
+                            flex-direction: column;
+                            gap: 10px;
+                            p {
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .sec1 {
+                .sec_1 {
+                    height: 315px;
+                    .img_sec_1 {
+                        img {
+                            width: 145px;
+                            height: 151px;
+                        }
+                    }
+                    .sec_1_div_1 {
+                        height: 120px;
+                        padding-left: 10px;
+                        padding-top: 0px;
+                        .const_img {
+                            width: 100px;
+                            height: 35px;
+                            img {
+                                width: 100px;
+                                height: 35px;
+                            }
+                        }
+                        h2 {
+                            margin: 15px 0 0 0;
+                            height: 70px;
+                            line-height: 25px;
+                        }
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        .kompany_n_2 {
+                            p {
+                                height: 240px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width:280px) {
+    body {
+        main {
+            .sec1 {
+                .sec_1 {
+                    .sec_1_div_1 {
+                        padding-left: 5px;
+                    }
+                }
+            }
+            .sec2 {
+                .sec_2 {
+                    .kompany_div {
+                        .kompany_n_2 {
+                            p {
+                                height: 260px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+// --------------------------------------- SHRIFT -----------------------------------------------------
+@font-face {
+    font-family: sans-serif;
+    src: url(/app/shrifts/microsoftsansserif.ttf);
+}
+@font-face {
+    font-family:stepe;
+    src: url(/app/shrifts/Steppe-Medium.ttf);
+}
